@@ -1,0 +1,8 @@
+drivers/
+.mvn
+mvnw.cmd
+mvnw
+.idea
+HELP.md
+target/
+openmrs-contrib-qa.iml
