@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class QAProperties {
+  public static String PROPERTIES_FILE = "qa.properties";
   public static String PROP_WEBDRIVER = "webdriver.gecko.driver";
   public static String URL = "root.url";
   public static String USER = "username";
@@ -12,7 +13,7 @@ public class QAProperties {
 
   public static Properties loadQAProperties() {
     Properties prop = new Properties();
-    try (InputStream props = QAProperties.class.getClassLoader().getResourceAsStream("qa.properties")) {
+    try (InputStream props = QAProperties.class.getClassLoader().getResourceAsStream(PROPERTIES_FILE)) {
       prop.load(props);
     } catch (IOException ex) {
       ex.printStackTrace();

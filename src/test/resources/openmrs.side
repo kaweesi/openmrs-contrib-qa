@@ -1,0 +1,218 @@
+{
+  "id": "29432554-4d12-4457-9db3-7e6f3c1c0a6d",
+  "version": "2.0",
+  "name": "openmrs",
+  "url": "demo.openmrs.org",
+  "tests": [{
+    "id": "6c785fd6-aad7-4542-8c74-e45b0251c5c7",
+    "name": "loginAndOut",
+    "commands": [{
+      "id": "7e78c992-37d7-40cd-8bf0-34c1e0451e39",
+      "comment": "",
+      "command": "open",
+      "target": "https://demo.openmrs.org/openmrs/login.htm",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "499d7e1e-4029-42e4-841b-9d020057c42f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x773",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4b4c1799-c64d-4d8f-a916-c40530fb5a74",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/fieldset/p/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "a50b40e4-4659-4937-9bd9-62756fb676eb",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/fieldset/p[2]/input", "xpath:idRelative"],
+        ["xpath=//p[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "41f20aef-1a21-4d09-ace9-bd92f401ba04",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/fieldset/p[2]/input", "xpath:idRelative"],
+        ["xpath=//p[2]/input", "xpath:position"]
+      ],
+      "value": "Admin123"
+    }, {
+      "id": "af0e0088-5ceb-4d49-8215-6ec619a5b279",
+      "comment": "",
+      "command": "click",
+      "target": "id=Pharmacy",
+      "targets": [
+        ["id=Pharmacy", "id"],
+        ["css=#Pharmacy", "css:finder"],
+        ["xpath=//li[@id='Pharmacy']", "xpath:attributes"],
+        ["xpath=//ul[@id='sessionLocation']/li[5]", "xpath:idRelative"],
+        ["xpath=//li[5]", "xpath:position"],
+        ["xpath=//li[contains(.,'Pharmacy')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f356c96a-80e9-4240-a321-e2c055179a48",
+      "comment": "",
+      "command": "click",
+      "target": "id=loginButton",
+      "targets": [
+        ["id=loginButton", "id"],
+        ["css=#loginButton", "css:finder"],
+        ["xpath=//input[@id='loginButton']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/fieldset/p[6]/input", "xpath:idRelative"],
+        ["xpath=//p[6]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e80f423f-9415-4449-80a0-037c2d2cf734",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Logout",
+      "targets": [
+        ["linkText=Logout", "linkText"],
+        ["css=.logout > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Logout')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/openmrs/appui/header/logout.action?successUrl=openmrs')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ba06ef3d-90fa-45be-94b4-e89797afad8c",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/fieldset/p/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "80f0fcf5-41d6-4acb-b9e4-75e3e2e9624b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.left:nth-child(3)",
+      "targets": [
+        ["css=.left:nth-child(3)", "css:finder"],
+        ["xpath=//form[@id='login-form']/fieldset/p[2]", "xpath:idRelative"],
+        ["xpath=//p[2]", "xpath:position"],
+        ["xpath=//p[contains(.,'Password:')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a2cfe63a-2909-4798-baea-9fa96ff9ad0a",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/fieldset/p[2]/input", "xpath:idRelative"],
+        ["xpath=//p[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a7ec52d5-18f3-4ecc-ab6b-ef2f0f42848a",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/fieldset/p[2]/input", "xpath:idRelative"],
+        ["xpath=//p[2]/input", "xpath:position"]
+      ],
+      "value": "Admin"
+    }, {
+      "id": "6447ca14-320a-48a0-b303-2a0200e245a9",
+      "comment": "",
+      "command": "click",
+      "target": "id=Pharmacy",
+      "targets": [
+        ["id=Pharmacy", "id"],
+        ["css=#Pharmacy", "css:finder"],
+        ["xpath=//li[@id='Pharmacy']", "xpath:attributes"],
+        ["xpath=//ul[@id='sessionLocation']/li[5]", "xpath:idRelative"],
+        ["xpath=//li[5]", "xpath:position"],
+        ["xpath=//li[contains(.,'Pharmacy')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ee4242fc-8de5-4131-9cfb-afd957819c39",
+      "comment": "",
+      "command": "click",
+      "target": "id=loginButton",
+      "targets": [
+        ["id=loginButton", "id"],
+        ["css=#loginButton", "css:finder"],
+        ["xpath=//input[@id='loginButton']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/fieldset/p[6]/input", "xpath:idRelative"],
+        ["xpath=//p[6]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7250d7d1-3d87-4c9d-81d4-26cc910ec279",
+      "comment": "",
+      "command": "click",
+      "target": "css=html",
+      "targets": [
+        ["css=html", "css:finder"],
+        ["xpath=//html", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "17cd3a96-144e-4209-9724-55f7df254080",
+      "comment": "",
+      "command": "click",
+      "target": "css=html",
+      "targets": [
+        ["css=html", "css:finder"],
+        ["xpath=//html", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "f1120de1-6699-469e-9438-81f93255b7e0",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["6c785fd6-aad7-4542-8c74-e45b0251c5c7"]
+  }],
+  "urls": [],
+  "plugins": []
+}

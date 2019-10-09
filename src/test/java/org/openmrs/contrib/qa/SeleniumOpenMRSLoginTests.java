@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class QaApplicationTests {
+public class SeleniumOpenMRSLoginTests {
 
   private WebDriver login(WebDriver loginIntoOpenMRS) {
     new FluentWait<>(loginIntoOpenMRS)
@@ -58,12 +58,6 @@ public class QaApplicationTests {
   }
 
   @Test
-  public void testSuccessfulOpenMRSLegacyLoginOnSelenium() throws Exception {
-    WebDriver loginIntoOpenMRS = Browse.legacyLogin("admin", "eSaude123");
-    rightLogin(loginIntoOpenMRS, By.id("userLogout"));
-  }
-
-  @Test
   public void testFailedOpenMRSLoginOnSelenium() throws Exception {
     WebDriver loginIntoOpenMRS = Browse.referenceApplicationLogin(null, "wrongPassword");
     wrongLogin(loginIntoOpenMRS, By.id("cantLogin"));
@@ -74,6 +68,13 @@ public class QaApplicationTests {
     WebDriver loginIntoOpenMRS = Browse.legacyLogin(null, "wrongPassword");
     wrongLogin(loginIntoOpenMRS, By.className("forgotPasswordLink"));
   }
+
+  @Test
+  public void testSuccessfulOpenMRSLegacyLoginOnSelenium() throws Exception {
+    WebDriver loginIntoOpenMRS = Browse.legacyLogin("admin", "eSaude123");
+    rightLogin(loginIntoOpenMRS, By.id("userLogout"));
+  }
+
 
   @Test(expected = TimeoutException.class)
   public void testLockOutUserOnWrongOpenMRSLegacyLoginOnSelenium() throws TimeoutException {
