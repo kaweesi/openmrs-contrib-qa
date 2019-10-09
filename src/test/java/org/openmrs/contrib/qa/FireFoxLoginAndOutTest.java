@@ -12,8 +12,7 @@ import org.openqa.selenium.WebDriver;
 
 import java.util.HashMap;
 import java.util.Map;
-
-// Exported from selenium ide (extension)
+//Exported from selenium ide (extension) to java test from src/test/resources/openmrs.slide
 public class FireFoxLoginAndOutTest {
   private WebDriver driver;
   private Map<String, Object> vars;

@@ -12,6 +12,8 @@ import org.openqa.selenium.WebDriver;
 
 import java.util.HashMap;
 import java.util.Map;
+
+//Exported from selenium ide (extension) to java test from src/test/resources/openmrs.slide
 public class ChromeLoginAndOutTest {
   private WebDriver driver;
   private Map<String, Object> vars;
@@ -43,7 +45,7 @@ public class ChromeLoginAndOutTest {
     driver.findElement(By.id("password")).sendKeys("Admin");
     driver.findElement(By.id("Pharmacy")).click();
     driver.findElement(By.id("loginButton")).click();
-    driver.findElement(By.cssSelector("html")).click();
-    driver.findElement(By.cssSelector("html")).click();
+    //driver.findElement(By.cssSelector("html")).click();
+    //driver.findElement(By.cssSelector("html")).click();
   }
 }

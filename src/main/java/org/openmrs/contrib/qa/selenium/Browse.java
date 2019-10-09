@@ -13,26 +13,23 @@ import org.springframework.util.StringUtils;
 public class Browse extends QATool {
 
   public static WebDriver driver(DriverProvider driverProvider) {
-    String driverLocation = getQAProperties().getProperty(QAProperties.PROP_WEBDRIVER);
-    if((driverProvider != null && DriverProvider.CHROME.equals(driverProvider)) || driverLocation.indexOf("chromedriver") >= 0) {
-      System.setProperty("webdriver.gecko.driver", driverLocation);
+    if(DriverProvider.CHROME.equals(driverProvider)) {
+      System.setProperty("webdriver.chrome.driver", "drivers/chromedriver");
       return new ChromeDriver();
-    } else if((driverProvider != null && DriverProvider.FIREFOX.equals(driverProvider)) || driverLocation.indexOf("geckodriver") >= 0) {
-      System.setProperty("webdriver.gecko.driver", driverLocation);
-      return new FirefoxDriver();
     } else {
-      return null;
+      System.setProperty("webdriver.gecko.driver", "drivers/geckodriver");
+      return new FirefoxDriver();
     }
   }
 
   public static WebDriver loadRootURL() {
-    WebDriver driver = driver(null);
+    WebDriver driver = driver(DriverProvider.FIREFOX);
     driver.get(getQAProperties().getProperty(QAProperties.URL));
     return driver;
   }
 
   public static WebDriver referenceApplicationLogin(String user, String pass) {
-    WebDriver driver = driver(null);
+    WebDriver driver = driver(DriverProvider.FIREFOX);
     driver.get(getQAProperties().getProperty(QAProperties.URL) + "/login.htm");
     //select session location
     driver.findElement(By.id("Pharmacy")).click();
@@ -43,7 +40,7 @@ public class Browse extends QATool {
   }
 
   public static WebDriver legacyLogin(String user, String pass) {
-    WebDriver driver = driver(null);
+    WebDriver driver = driver(DriverProvider.FIREFOX);
     driver.get("http://localhost:8083/openmrs-standalone/");
     driver.findElement(By.id("username")).sendKeys(StringUtils.isEmpty(user) ? getQAProperties().getProperty(QAProperties.USER) : user);
     driver.findElement(By.id("password")).sendKeys(StringUtils.isEmpty(pass) ? getQAProperties().getProperty(QAProperties.PASS): pass);
@@ -52,7 +49,7 @@ public class Browse extends QATool {
   }
 
   public static WebDriver runRecordedScript() {
-    WebDriver driver = driver(null);
+    WebDriver driver = driver(DriverProvider.FIREFOX);
     new FluentWait<>(driver)
             .ignoring(WebDriverException.class)
             .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("body")));

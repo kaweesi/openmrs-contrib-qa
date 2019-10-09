@@ -6,7 +6,6 @@ import java.util.Properties;
 
 public class QAProperties {
   public static String PROPERTIES_FILE = "qa.properties";
-  public static String PROP_WEBDRIVER = "webdriver.gecko.driver";
   public static String URL = "root.url";
   public static String USER = "username";
   public static String PASS = "password";
