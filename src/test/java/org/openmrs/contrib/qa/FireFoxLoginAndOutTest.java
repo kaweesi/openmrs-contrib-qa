@@ -23,7 +23,7 @@ public class FireFoxLoginAndOutTest {
   @Before
   public void setUp() {
     //driver = new FirefoxDriver();
-    driver = Browse.driver(DriverProvider.FIREFOX);
+    driver = Browse.driver(DriverProvider.FIREFOX, false);
     js = (JavascriptExecutor) driver;
     vars = new HashMap<String, Object>();
   }

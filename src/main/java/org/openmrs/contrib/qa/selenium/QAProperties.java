@@ -10,6 +10,7 @@ public class QAProperties {
   public static String USER = "username";
   public static String PASS = "password";
   public static String BROWSER = "browser";
+  public static String HEADLESS = "headless";
 
   public static Properties loadQAProperties() {
     Properties prop = new Properties();

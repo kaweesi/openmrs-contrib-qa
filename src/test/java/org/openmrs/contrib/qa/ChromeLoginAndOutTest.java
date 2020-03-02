@@ -23,7 +23,7 @@ public class ChromeLoginAndOutTest {
   @Before
   public void setUp() {
     //driver = new ChromeDriver();
-    driver = Browse.driver(DriverProvider.CHROME);
+    driver = Browse.driver(DriverProvider.CHROME, false);
     js = (JavascriptExecutor) driver;
     vars = new HashMap<String, Object>();
   }

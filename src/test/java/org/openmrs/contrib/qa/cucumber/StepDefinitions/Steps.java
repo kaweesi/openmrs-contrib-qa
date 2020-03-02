@@ -36,7 +36,7 @@ public class Steps {
   protected void browseUrl(String path) {
     Properties props = QATool.getQAProperties();
     if(driver == null) {
-      driver = Browse.driver(DriverProvider.valueOf(props.getProperty(QAProperties.BROWSER)));
+      driver = Browse.driver(DriverProvider.valueOf(props.getProperty(QAProperties.BROWSER)), Boolean.parseBoolean(props.getProperty(QAProperties.HEADLESS)));
     }
     if(StringUtils.isEmpty(parentUrl)) {
       parentUrl = props.getProperty(QAProperties.URL);

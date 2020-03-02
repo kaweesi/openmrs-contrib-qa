@@ -15,7 +15,7 @@ public class MultipleBrowserLoginAndOutTest {
   public void loginAndOut() {
 
     for(DriverProvider driverProvider : DriverProvider.values()) {
-      WebDriver driver = Browse.driver(driverProvider);
+      WebDriver driver = Browse.driver(driverProvider, false);
       driver.get("https://demo.openmrs.org/openmrs/login.htm");
       driver.findElement(By.id("username")).sendKeys("admin");
       driver.findElement(By.id("password")).click();
