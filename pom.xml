@@ -79,29 +79,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.6.0</version>
-                <executions>
-                    <execution>
-                        <phase>integration-test</phase>
-                        <goals>
-                            <goal>java</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <executableDependency>
-                        <groupId>info.cukes</groupId>
-                        <artifactId>cucumber-core</artifactId>
-                    </executableDependency>
-                    <mainClass>cucumber.api.cli.Main</mainClass>
-                    <arguments>
-                        <argument>src/test/resources/features</argument>
-                    </arguments>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 </project>
