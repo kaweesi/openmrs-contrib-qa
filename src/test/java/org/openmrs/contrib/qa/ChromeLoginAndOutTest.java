@@ -13,11 +13,11 @@ import org.openqa.selenium.WebDriver;
 import java.util.HashMap;
 import java.util.Map;
 
-//Exported from selenium ide (extension) to java test from src/test/resources/openmrs.slide
 public class ChromeLoginAndOutTest {
   private WebDriver driver;
   private Map<String, Object> vars;
   JavascriptExecutor js;
+
   @Before
   public void setUp() {
     //driver = new ChromeDriver();
@@ -25,27 +25,52 @@ public class ChromeLoginAndOutTest {
     js = (JavascriptExecutor) driver;
     vars = new HashMap<String, Object>();
   }
+
   @After
   public void tearDown() {
-    driver.quit();
+    driver.close();
   }
+
   @Test
   public void loginAndOut() {
-    driver.get("https://demo.openmrs.org/openmrs/login.htm");
-    driver.manage().window().setSize(new Dimension(1280, 773));
+    initLoginPage();
+    correctPharmacyLogin();
+    login();
+    logout();
+    wrongPharmacyLogin();
+    login();
+  }
+
+  private void logout() {
+    driver.findElement(By.linkText("Logout")).click();
+  }
+
+  private void correctPharmacyLogin() {
     driver.findElement(By.id("username")).sendKeys("admin");
     driver.findElement(By.id("password")).click();
     driver.findElement(By.id("password")).sendKeys("Admin123");
     driver.findElement(By.id("Pharmacy")).click();
     driver.findElement(By.id("loginButton")).click();
-    driver.findElement(By.linkText("Logout")).click();
+  }
+
+  private void login() {
+    driver.findElement(By.id("loginButton")).click();
+  }
+
+  private void wrongPharmacyLogin() {
     driver.findElement(By.id("username")).sendKeys("admin");
-    driver.findElement(By.cssSelector(".left:nth-child(3)")).click();
     driver.findElement(By.id("password")).click();
     driver.findElement(By.id("password")).sendKeys("Admin");
     driver.findElement(By.id("Pharmacy")).click();
-    driver.findElement(By.id("loginButton")).click();
-    //driver.findElement(By.cssSelector("html")).click();
-    //driver.findElement(By.cssSelector("html")).click();
+  }
+
+  private void initLoginPage() {
+    driver.get("https://uat-refapp.openmrs.org/openmrs/login.htm");
+    driver.manage().window().setSize(new Dimension(1280, 773));
+  }
+
+  @Test
+  public void loginAndOutWithCucumber() {
+
   }
 }

@@ -7,7 +7,7 @@ import java.util.Properties;
 public class QATool {
   private static Properties qaProperties;
 
-  protected static Properties getQAProperties() {
+  public static Properties getQAProperties() {
     if(qaProperties != null) {
       return qaProperties;
     } else {

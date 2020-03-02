@@ -4,30 +4,32 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
-import org.openmrs.contrib.qa.selenium.Browse;
-import org.openmrs.contrib.qa.selenium.DriverProvider;
+import org.openmrs.contrib.qa.QATool;
+import org.openmrs.contrib.qa.selenium.QAProperties;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class LoginSteps {
-  private WebDriver driver;
+import java.util.Properties;
 
-  public LoginSteps() {
-    //driver = new ChromeDriver();
-    driver = Browse.driver(DriverProvider.CHROME);
-    driver.manage().window().setSize(new Dimension(600, 320));
-  }
+public class LoginSteps extends Steps {
 
   private void logout() {
-    driver.findElement(By.linkText("Logout")).click();
+    logoutElement().click();
   }
 
   private void correctLogin() {
+    Properties props = QATool.getQAProperties();
+    enterUsername(props.getProperty(QAProperties.USER));
+    enterPassword(props.getProperty(QAProperties.PASS));
+  }
+
+  private void wrongLogin() {
     enterUsername("admin");
-    enterPassword("Admin123");
+    enterPassword("WrongPassword");
+  }
+
+  private WebElement logoutElement() {
+    return getElement(By.linkText("Logout"));
   }
 
   private void login() {
@@ -38,13 +40,6 @@ public class LoginSteps {
     return getElement(By.id("loginButton"));
   }
 
-  private WebElement getElement(By elementBy) {
-    try {
-      return driver.findElement(elementBy);
-    } catch (NoSuchElementException e) {
-      return null;
-    }
-  }
 
   private void enterUsername(String username) {
     driver.findElement(By.id("username")).click();
@@ -56,21 +51,8 @@ public class LoginSteps {
     driver.findElement(By.id("password")).sendKeys(password);
   }
 
-  private void elementClickOn(By elementBy) {
-    driver.findElement(elementBy).click();
-  }
-
-  private void wrongLogin() {
-    enterUsername("admin");
-    enterPassword("WrongPassword");
-  }
-
   private void initLoginPage() {
-    driver.get("https://uat-refapp.openmrs.org/openmrs/login.htm");
-  }
-
-  private void quitBrowser() {
-    driver.quit();
+    browseUrl("/login.htm");
   }
 
   @When("I visit login page")
@@ -101,11 +83,6 @@ public class LoginSteps {
     Assert.assertNull(getLoginButton());
   }
 
-  @And("Close browser")
-  public void closeBrowser() {
-    quitBrowser();
-  }
-
   @And("I Select Pharmacy Login Location")
   public void selectPharmacyLogin() {
     elementClickOn(By.id("Pharmacy"));
@@ -129,5 +106,20 @@ public class LoginSteps {
     } else if(status.trim().endsWith("false")) {
       Assert.assertNotNull(getLoginButton());
     }
+  }
+
+  @And("I log out")
+  public void iLogOut() {
+   logout();
+  }
+
+  @Then("Is logged out")
+  public void isLoggedOut() {
+    Assert.assertNull(logoutElement());
+  }
+
+  @And("Close browser")
+  public void closeBrowser() {
+    quitBrowser();
   }
 }

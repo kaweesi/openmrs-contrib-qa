@@ -27,3 +27,11 @@ Feature: Login Testing
       | wrongUs | Admin123 | false  |
       | wrongUs | wrongPas | false  |
       | admin   | Admin123 | true   |
+
+  Scenario: Log out
+    When I enter right details
+    And I Select Pharmacy Login Location
+    And Pass Login
+    And I log out
+    Then Is logged out
+    And Close browser

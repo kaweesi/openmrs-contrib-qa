@@ -1,5 +1,6 @@
 package org.openmrs.contrib.qa;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openmrs.contrib.qa.jmeter.JmeterInitializer;
@@ -11,6 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.io.File;
 import java.io.IOException;
 
+@Ignore
 @RunWith(SpringRunner.class)
 @EnableAutoConfiguration(exclude={MongoAutoConfiguration.class})
 @SpringBootTest
