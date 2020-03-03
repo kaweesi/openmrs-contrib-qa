@@ -55,50 +55,50 @@ public class LoginSteps extends Steps {
     browseUrl("/login.htm");
   }
 
-  @When("I visit login page")
+  @When("User visits login page")
   public void visitLoginPage() {
     initLoginPage();
   }
 
-  @When("I enter wrong details")
+  @When("User enters wrong details")
   public void enterWrongDetails() {
     wrongLogin();
   }
 
-  @When("I enter right details")
+  @When("User enters right details")
   public void enterRightDetails() {
     correctLogin();
   }
 
-  @Then("Fail Login")
+  @Then("System Fails Login")
   public void failLogin() {
     login();
     Assert.assertNotNull(getLoginButton());
   }
 
-  @Then("Pass Login")
+  @Then("System Passes Login")
   public void passLogin() {
     login();
 
     Assert.assertNull(getLoginButton());
   }
 
-  @And("I Select Pharmacy Login Location")
+  @And("User Selects Pharmacy Login Location")
   public void selectPharmacyLogin() {
     elementClickOn(By.id("Pharmacy"));
   }
 
-  @When("I enter \"([^\"]*)\" username")
+  @When("User enters \"([^\"]*)\" username")
   public void anyUsername(String username) {
     enterUsername(username);
   }
 
-  @And("I enter \"([^\"]*)\" password")
+  @And("User enters \"([^\"]*)\" password")
   public void anyPassword(String password) {
     enterPassword(password);
   }
 
-  @And("Evaluate Login \"([^\"]*)\"")
+  @And("System Evaluates Login \"([^\"]*)\"")
   public void evaluateLogin(String status) {
     login();
     if(status.trim().endsWith("true")) {
@@ -108,17 +108,17 @@ public class LoginSteps extends Steps {
     }
   }
 
-  @And("I log out")
+  @And("User logs out")
   public void iLogOut() {
    logout();
   }
 
-  @Then("Is logged out")
+  @Then("User Is logged out")
   public void isLoggedOut() {
     Assert.assertNull(logoutElement());
   }
 
-  @And("Close browser")
+  @And("System Closes browser")
   public void closeBrowser() {
     quitBrowser();
   }

@@ -1,26 +1,26 @@
 Feature: Login Testing
 
   Background:
-    Given I visit login page
+    Given User visits login page
 
   Scenario: Wrong Login
-    When I enter wrong details
-    And I Select Pharmacy Login Location
-    Then Fail Login
-    And Close browser
+    When User enters wrong details
+    And User Selects Pharmacy Login Location
+    Then System Fails Login
+    And System Closes browser
 
   Scenario: Successful Login
-    When I enter right details
-    And I Select Pharmacy Login Location
-    Then Pass Login
-    And Close browser
+    When User enters right details
+    And User Selects Pharmacy Login Location
+    Then System Passes Login
+    And System Closes browser
 
   Scenario Outline:
-    When I enter "<username>" username
-    And I enter "<password>" password
-    And I Select Pharmacy Login Location
-    Then Evaluate Login "<status>"
-    And Close browser
+    When User enters "<username>" username
+    And User enters "<password>" password
+    And User Selects Pharmacy Login Location
+    Then System Evaluates Login "<status>"
+    And System Closes browser
     Examples:
       | username| password | status |
       | admin   | wrongPas | false  |
@@ -29,9 +29,9 @@ Feature: Login Testing
       | admin   | Admin123 | true   |
 
   Scenario: Log out
-    When I enter right details
-    And I Select Pharmacy Login Location
-    And Pass Login
-    And I log out
-    Then Is logged out
-    And Close browser
+    When User enters right details
+    And User Selects Pharmacy Login Location
+    And System Passes Login
+    And User logs out
+    Then User Is logged out
+    And System Closes browser

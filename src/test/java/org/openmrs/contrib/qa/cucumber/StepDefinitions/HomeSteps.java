@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 
 public class HomeSteps extends Steps {
 
-  @Then("I should be on the Home page with all app links")
+  @Then("User should be on the Home page with all app links")
   public void shouldBeOnHomePage() {
     for(String appName : new String[] {
             "Find Patient Record", "Active Visits", "Register a patient",
@@ -18,7 +18,7 @@ public class HomeSteps extends Steps {
     }
   }
 
-  @And("I visit home page")
+  @And("User visits home page")
   public void visitHome() {
     browseUrl("/referenceapplication/home.page");
   }
