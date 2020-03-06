@@ -40,7 +40,6 @@ public class LoginSteps extends Steps {
     return getElement(By.id("loginButton"));
   }
 
-
   private void enterUsername(String username) {
     driver.findElement(By.id("username")).click();
     driver.findElement(By.id("username")).sendKeys(username);
@@ -79,7 +78,6 @@ public class LoginSteps extends Steps {
   @Then("System Passes Login")
   public void passLogin() {
     login();
-
     Assert.assertNull(getLoginButton());
   }
 

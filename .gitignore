@@ -1,4 +1,7 @@
-##drivers/
+drivers/
+node/
+node_modules/
+package-lock.json
 .mvn
 mvnw.cmd
 mvnw
