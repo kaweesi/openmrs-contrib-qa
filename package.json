@@ -1,8 +1,13 @@
 {
-  "devDependencies": {
-    "cucumber": "^6.0.5",
+  "dependencies": {
+    "cucumber": "6.0.5",
     "puppeteer": "2.1.1",
     "properties-reader": "1.0.0",
-    "cypress-cucumber-preprocessor": "^1.9.1"
+    "chai": "4.2.0",
+    "cypress": "4.1.0",
+    "cypress-cucumber-preprocessor": "^1.13.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
   }
 }
